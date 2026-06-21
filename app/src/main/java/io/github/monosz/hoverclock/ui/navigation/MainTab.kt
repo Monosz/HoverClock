@@ -5,7 +5,8 @@ import io.github.monosz.hoverclock.model.TimeMode
 enum class MainTab {
     Clock,
     Stopwatch,
-    Timer;
+    Timer,
+    ;
 
     val timeMode: TimeMode
         get() =

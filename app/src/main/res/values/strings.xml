@@ -86,4 +86,5 @@
     <string name="about_title">About HoverClock</string>
     <string name="about_version">Version %1$s</string>
     <string name="about_github">View on GitHub</string>
+    <string name="about_report_issue">Report an issue</string>
 </resources>
