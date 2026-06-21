@@ -1,36 +1,25 @@
 # HoverClock
 
-HoverClock is a lightweight, open-source Android app that provides floating time overlays — **Clock**, **Stopwatch**, and **Timer** — that stay visible over other apps.
+A lightweight Android app for floating Clock, Stopwatch, and Timer overlays.
+
+> [!IMPORTANT]
+> HoverClock started as an AI-generated MVP to quickly validate the idea. While it's functional, the codebase is still being cleaned up. Expect bugs and breaking changes until a stable release if you do decide to use it.
 
 ## Features
 
-- Floating overlay for Clock, Stopwatch, and Timer modes
-- Drag to reposition (with optional lock)
-- Material 3 / Material You dynamic theming
-- Configurable appearance: transparency, font size, corner radius
-- Per-mode settings persisted with DataStore
-- No ads, analytics, accounts, or unnecessary permissions
-
-## Architecture
-
-```
-ui/          → Compose screens (home, settings, overlay)
-service/     → OverlayService (foreground service)
-overlay/     → OverlayManager (WindowManager)
-engine/      → TimeProvider implementations
-model/       → TimeMode, TimeState, OverlaySettings
-data/        → SettingsRepository (DataStore)
-```
-
-The overlay consumes `TimeState` from a `TimeProvider`, keeping it independent of the active mode.
+* Floating Clock, Stopwatch, and Timer overlays that stay over other apps.
+* Launch multiple floating overlays at the same time.
+* Drag to reposition, with an optional lock.
+* Customizable transparency, font size, and corner radius.
+* Material You dynamic theming.
+* Per-mode settings saved with DataStore.
+* No ads, analytics, or unnecessary permissions.
 
 ## Permissions
 
-| Permission | Why |
-|---|---|
-| `SYSTEM_ALERT_WINDOW` | Draw overlay over other apps |
-| `FOREGROUND_SERVICE` / `SPECIAL_USE` | Keep overlay alive in background |
-| `POST_NOTIFICATIONS` | Foreground service notification (API 33+) |
+* **Display over other apps** – Required to show floating overlays.
+* **Foreground Service** – Keeps overlays running in the background.
+* **Notifications** – Required for the foreground service notification (Android 13+).
 
 ## Building
 
@@ -40,9 +29,18 @@ The overlay consumes `TimeState` from a `TimeProvider`, keeping it independent o
 
 ## Usage
 
-1. Open HoverClock and tap **Configure** to adjust mode settings.
-2. Tap **Launch** to start the floating overlay.
-3. Grant overlay permission when prompted.
-4. Drag the overlay to reposition it.
-5. For Stopwatch and Timer, tap the overlay to start/pause.
-6. Stop the overlay from the persistent notification.
+1. Open the app and tap **Configure** to change settings.
+2. Tap **Launch** to start one or more floating overlays.
+3. Grant the overlay permission if prompted.
+4. Drag overlays to reposition them.
+5. Tap a Stopwatch or Timer overlay to start or pause it.
+6. Stop overlays from the persistent notification.
+
+## Architecture
+
+* `ui/` – Compose screens.
+* `service/` – Foreground service.
+* `overlay/` – Window management.
+* `engine/` – Time providers and overlay logic.
+* `model/` – Data models.
+* `data/` – DataStore-backed settings.
