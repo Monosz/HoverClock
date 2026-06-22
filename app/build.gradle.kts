@@ -5,9 +5,12 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+val keystorePropertiesFile = rootProject.file("keystore.properties")
 val keystoreProperties =
     Properties().apply {
-        load(rootProject.file("keystore.properties").inputStream())
+        if (keystorePropertiesFile.exists()) {
+            load(keystorePropertiesFile.inputStream())
+        }
     }
 
 android {
@@ -30,11 +33,13 @@ android {
     }
 
     signingConfigs {
-        create("release") {
-            storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
-            storePassword = keystoreProperties.getProperty("storePassword")
-            keyAlias = keystoreProperties.getProperty("keyAlias")
-            keyPassword = keystoreProperties.getProperty("keyPassword")
+        if (keystorePropertiesFile.exists()) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
         }
     }
 
@@ -53,7 +58,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
-            signingConfig = signingConfigs.getByName("release")
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
     compileOptions {
