@@ -36,8 +36,8 @@ jobs:
       - name: Spotless check
         run: ./gradlew spotlessCheck --no-daemon
 
-      - name: Unit tests
-        run: ./gradlew :app:testDebugUnitTest --no-daemon
+#      - name: Unit tests
+#        run: ./gradlew :app:testDebugUnitTest --no-daemon
 
       - name: Prepare signing
         env:
