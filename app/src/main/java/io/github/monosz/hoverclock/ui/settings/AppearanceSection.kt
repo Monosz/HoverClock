@@ -58,7 +58,7 @@ fun AppearanceSection(
         )
 
         SettingSlider(
-            label = stringResource(R.string.setting_background_transparency),
+            label = stringResource(R.string.setting_background_opacity),
             value = settings.backgroundAlpha,
             valueRange = 0.2f..1f,
             onValueChange = onBackgroundAlphaChange,
