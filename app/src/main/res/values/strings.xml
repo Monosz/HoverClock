@@ -19,9 +19,15 @@
 
     <string name="setting_use_24_hour">24-hour format</string>
     <string name="setting_show_seconds">Show seconds</string>
+    <string name="setting_time_zone">Time zone</string>
+    <string name="time_zone_search_hint">Search time zones</string>
+    <string name="time_zone_system_default">System default</string>
+    <string name="time_zone_system_default_hint">Uses your device timezone</string>
+    <string name="time_zone_sheet_title">Time zone</string>
     <string name="setting_show_milliseconds">Show milliseconds</string>
     <string name="setting_auto_start">Auto-start</string>
     <string name="setting_alert_when_finished">Alert when finished</string>
+    <string name="setting_show_name_above_time">Show name above time</string>
     <string name="setting_hours">Hours</string>
     <string name="setting_minutes">Minutes</string>
     <string name="setting_seconds">Seconds</string>
@@ -34,9 +40,11 @@
     <string name="stop_all_dialog_message">This will close all %1$d floating overlays.</string>
 
     <string name="appearance_section_title">Appearance</string>
-    <string name="setting_background_transparency">Background transparency</string>
+    <string name="setting_background_opacity">Background opacity</string>
     <string name="setting_font_size">Font size</string>
     <string name="setting_corner_radius">Corner radius</string>
+    <string name="setting_corner_radius_circle">Circle</string>
+    <string name="setting_padding">Padding</string>
     <string name="setting_lock_position">Lock position</string>
     <string name="setting_keep_screen_on">Keep screen on</string>
 
@@ -87,4 +95,6 @@
     <string name="about_version">Version %1$s</string>
     <string name="about_github">View on GitHub</string>
     <string name="about_report_issue">Report an issue</string>
+    <string name="about_open_source">Open source libraries</string>
+    <string name="about_colorpicker_library">Color picker by Skydoves (Apache 2.0)</string>
 </resources>
